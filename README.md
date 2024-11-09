@@ -1,6 +1,6 @@
 # QuadraX
 
-<img src="logo_quadrax.jpeg" alt="Logo QuadraX" height="400" width="500">
+<img src="images/logo_quadrax.jpeg" alt="Logo QuadraX" height="400" width="500">
 
 ## Introdução
 O projeto QuadraX visa desenvolver uma plataforma digital eficiente para a gestão de aluguel

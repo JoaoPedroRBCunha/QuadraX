@@ -6,12 +6,12 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_user") // <- Nome da tabela de usuários -> (tb_user)
 public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id
+    @Id //Id é dado como Primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
@@ -22,7 +22,7 @@ public class User implements Serializable {
     public User(){
     }
 
-    public User(long id, String name, String email, String phone, String password) {
+    public User(Long id, String name, String email, String phone, String password) {
         super();
         this.id = id;
         this.name = name;
