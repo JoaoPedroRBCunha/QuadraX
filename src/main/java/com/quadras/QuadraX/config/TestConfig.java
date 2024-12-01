@@ -1,8 +1,10 @@
 package com.quadras.QuadraX.config;
 
+import com.quadras.QuadraX.entities.Category;
 import com.quadras.QuadraX.entities.User;
 import com.quadras.QuadraX.entities.Order;
 import com.quadras.QuadraX.entities.enums.OrderStatus;
+import com.quadras.QuadraX.repositories.CategoryRepository;
 import com.quadras.QuadraX.repositories.OrderRepository;
 import com.quadras.QuadraX.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,18 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public void run(String... args) throws Exception {
+
+        Category cat1 = new Category(null, "Quadra Poliesportiva");
+        Category cat2 = new Category(null, "Beach Tennis");
+        Category cat3 = new Category(null, "Campo Society");
+
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+
         User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
         User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
