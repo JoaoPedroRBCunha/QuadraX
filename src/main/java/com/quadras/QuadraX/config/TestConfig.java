@@ -4,11 +4,9 @@ import com.quadras.QuadraX.entities.Category;
 import com.quadras.QuadraX.entities.Product;
 import com.quadras.QuadraX.entities.User;
 import com.quadras.QuadraX.entities.Order;
+import com.quadras.QuadraX.entities.OrderItem;
 import com.quadras.QuadraX.entities.enums.OrderStatus;
-import com.quadras.QuadraX.repositories.CategoryRepository;
-import com.quadras.QuadraX.repositories.OrderRepository;
-import com.quadras.QuadraX.repositories.ProductRepository;
-import com.quadras.QuadraX.repositories.UserRepository;
+import com.quadras.QuadraX.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner; // Utilizado para executar a classe ao programa executar
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +31,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -70,5 +71,13 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(u1, u2));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+        OrderItem oi1 = new OrderItem(o1, p1, 1, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 1, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 1, p5.getPrice());
+
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
     }
 }
