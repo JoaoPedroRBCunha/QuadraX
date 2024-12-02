@@ -1,5 +1,6 @@
 package com.quadras.QuadraX.entities;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.quadras.QuadraX.entities.pk.OrderItemPK;
@@ -12,6 +13,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId

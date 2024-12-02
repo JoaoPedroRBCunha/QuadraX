@@ -1,5 +1,6 @@
 package com.quadras.QuadraX.entities.pk;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.quadras.QuadraX.entities.Order;
@@ -11,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 
 @Embeddable
 public class OrderItemPK implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @ManyToOne

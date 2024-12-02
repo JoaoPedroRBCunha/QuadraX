@@ -1,10 +1,6 @@
 package com.quadras.QuadraX.config;
 
-import com.quadras.QuadraX.entities.Category;
-import com.quadras.QuadraX.entities.Product;
-import com.quadras.QuadraX.entities.User;
-import com.quadras.QuadraX.entities.Order;
-import com.quadras.QuadraX.entities.OrderItem;
+import com.quadras.QuadraX.entities.*;
 import com.quadras.QuadraX.entities.enums.OrderStatus;
 import com.quadras.QuadraX.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +74,11 @@ public class TestConfig implements CommandLineRunner {
         OrderItem oi4 = new OrderItem(o3, p5, 1, p5.getPrice());
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
+        Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+
+        orderRepository.save(o1);
 
     }
 }
